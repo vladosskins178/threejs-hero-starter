@@ -3,7 +3,7 @@
 [![CI](https://github.com/vladosskins178/threejs-hero-starter/actions/workflows/ci.yml/badge.svg)](https://github.com/vladosskins178/threejs-hero-starter/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-A small Three.js 3D hero section for landing pages that stays fast on phones. No build step, no framework: copy three files, point it at your GLB model, done.
+A small Three.js 3D hero section for landing pages that stays fast on phones. No build step, no framework: copy four small files, point them at your GLB model, done.
 
 **Live demo:** https://vladosskins178.github.io/threejs-hero-starter/ (add [`?debug`](https://vladosskins178.github.io/threejs-hero-starter/?debug) to see the quality tier, pixel ratio and triangle count)
 
