@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Three.js Hero Starter</title>
+  <meta name="description" content="A fast, mobile-friendly Three.js 3D hero section with a poster fallback, reduced-motion support and automatic quality scaling.">
+  <meta name="color-scheme" content="dark light">
+  <meta property="og:title" content="Three.js Hero Starter">
+  <meta property="og:description" content="A 3D hero section that stays fast on phones.">
+  <meta property="og:image" content="https://vladosskins178.github.io/threejs-hero-starter/assets/poster.png">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 2 26 12 16 30 6 12z' fill='%237c5cff'/%3E%3C/svg%3E">
+  <!-- The poster is the Largest Contentful Paint, so fetch it early. -->
+  <link rel="preload" as="image" href="assets/poster.webp" type="image/webp">
+  <link rel="stylesheet" href="src/style.css">
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.187.0/build/three.module.min.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.187.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <header class="nav">
+    <a class="nav__brand" href="./">Hero Starter</a>
+    <a class="nav__link" href="https://github.com/vladosskins178/threejs-hero-starter">GitHub</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero__copy">
+        <p class="hero__eyebrow">Three.js template</p>
+        <h1 class="hero__title">A 3D hero that stays fast on phones</h1>
+        <p class="hero__lead">
+          Drop in your GLB model. The page paints a poster image first, starts 3D only when the browser
+          is idle, and lowers its own resolution when a device struggles.
+        </p>
+        <div class="hero__actions">
+          <a class="button button--primary" href="https://github.com/vladosskins178/threejs-hero-starter#quick-start">Get the template</a>
+          <a class="button" href="?debug">Show perf stats</a>
+        </div>
+      </div>
+
+      <div class="hero-3d" data-model="assets/crystal.glb">
+        <picture>
+          <source srcset="assets/poster.webp" type="image/webp">
+          <img class="hero-3d__poster" src="assets/poster.png" width="960" height="960"
+               alt="Low-poly violet and blue crystal cluster on a dark rock" fetchpriority="high">
+        </picture>
+      </div>
+    </section>
+
+    <section class="features" aria-label="What the template handles">
+      <article>
+        <h2>Poster first</h2>
+        <p>A static image is the first paint and the fallback when WebGL is missing, the model fails or Save-Data is on.</p>
+      </article>
+      <article>
+        <h2>Lazy start</h2>
+        <p>three.js and the model load only when the hero nears the viewport, inside an idle callback.</p>
+      </article>
+      <article>
+        <h2>Quality caps</h2>
+        <p>Pixel ratio is capped per device class, low-end devices run at 30 fps, and a governor steps resolution down under load.</p>
+      </article>
+      <article>
+        <h2>Respectful motion</h2>
+        <p>With reduced motion the model holds a still pose. Rendering pauses off-screen and in background tabs.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer">
+    MIT licensed · <a href="https://github.com/vladosskins178/threejs-hero-starter">Source on GitHub</a>
+  </footer>
+
+  <script type="module">
+    import { autoMount } from './src/auto.js';
+    autoMount('.hero-3d');
+  </script>
+</body>
+</html>
